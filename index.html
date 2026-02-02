@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Playto Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --success: #16a34a;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary: #60a5fa;
+      --success: #22c55e;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    button {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    .post {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,.05);
+    }
+
+    .post h3 {
+      margin: 0 0 8px;
+    }
+
+    .likes {
+      font-size: 14px;
+      margin: 10px 0;
+      color: var(--success);
+    }
+
+    .comments {
+      margin-top: 12px;
+      padding-left: 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .comment {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .comment strong {
+      color: var(--primary);
+    }
+
+    .add-comment {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #cbd5f5;
+      background: transparent;
+      color: var(--text);
+    }
+
+    input::placeholder {
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🌍 Playto Community</h1>
+    <button onclick="toggleDark()">🌙 Dark</button>
+  </header>
+
+  <div class="container">
+
+    <!-- POST -->
+    <div class="post">
+      <h3>Posted by <strong>hari</strong></h3>
+      <p>Life is short so stop worrying and start living 😊❤️</p>
+
+      <div class="likes">❤️ Liked by: Virat_Kohli, Gammana, Indhu</div>
+
+      <div class="comments" id="comments1">
+        <div class="comment"><strong>gokul:</strong> True 👍</div>
+        <div class="comment"><strong>Gammana:</strong> yeah I agree with you Hari</div>
+      </div>
+
+      <div class="add-comment">
+        <input placeholder="Write a comment..." />
+        <button onclick="addComment(this, 'comments1')">Post</button>
+      </div>
+    </div>
+
+    <!-- POST -->
+    <div class="post">
+      <h3>Posted by <strong>Indhu</strong></h3>
+      <p>I got placed in Google with 80 LPA package 😊❤️</p>
+
+      <div class="likes">❤️ Liked by: gokul</div>
+
+      <div class="comments" id="comments2">
+        <div class="comment"><strong>gokul:</strong> Congrats 🎉❤️</div>
+      </div>
+
+      <div class="add-comment">
+        <input placeholder="Write a comment..." />
+        <button onclick="addComment(this, 'comments2')">Post</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+    }
+
+    function addComment(btn, id) {
+      const input = btn.previousElementSibling;
+      const text = input.value.trim();
+      if (!text) return;
+
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = "<strong>You:</strong> " + text;
+
+      document.getElementById(id).appendChild(div);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
