@@ -32,32 +32,43 @@ This repository contains a prototype **Community Feed** application built for th
 - Docker
 - Docker Compose
 
-### Start the application
+### 📦 Installation & Setup
+1. Clone the repository
+   ```bash
+   cd ~/Desktop
+   git clone https://github.com/Gokula17/PLAYTO-ENGINEERING-CHALLENGE.git
+
+2. Navigate into the project
+   ```bash
+   cd PLAYTO-ENGINEERING-CHALLENGE
+
+3. Install frontend dependencies
+   ```bash
+   cd frontend
+   npm install
+   cd ..
+
+4. Build and run the application
+    ```bash
+    docker compose up --build
+
+-----
+
+### 🌐 Access the Application
+Once the containers are running, open your browser at:
+for frondend ui : 
+   ```bash
+   http://localhost:3000
+```
+for backend Django admin :
+  ```bash
+  http://localhost:8000/admin
+```
+
+-----
+
+### 🛑 Stopping the Application
 ```bash
-docker compose up --build
+docker compose down
 
-Access URLs
-After the containers are running:
-Frontend (Community Feed UI):
-http://localhost:3000
-Backend Admin (create users, posts, comments):
-http://localhost:8000/admin/
-Feed API:
-http://localhost:8000/api/feed/
-Leaderboard API (last 24 hours):
-http://localhost:8000/api/leaderboard/
 
-Creating Posts and Comments
-For this prototype, posts and comments are created via Django Admin:
-Open http://localhost:8000/admin/
-Log in as a superuser
-Create users
-Create posts
-Create comments (optionally selecting a parent comment for replies)
-Open http://localhost:3000 to see the content live
-This approach keeps the prototype focused on backend correctness, performance, and data modeling rather than authentication or posting UI workflows.
-
-Notes
-The /api/ root endpoint is intentionally not defined.
-Only concrete API endpoints (e.g. /api/feed/) are exposed.
-This project is a prototype focused on correctness, performance, and explainability.
