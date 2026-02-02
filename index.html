@@ -1,4 +1,3 @@
-<!-- GitHub Pages trigger -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,22 +59,28 @@
       font-weight: 600;
     }
 
-    .container {
-      max-width: 900px;
+    .layout {
+      display: flex;
+      gap: 24px;
+      max-width: 1200px;
       margin: 24px auto;
       padding: 0 16px;
     }
 
-    .post {
+    .container {
+      flex: 2;
+    }
+
+    .sidebar {
+      flex: 1;
+    }
+
+    .post, .leaderboard {
       background: var(--card);
       border-radius: 14px;
       padding: 18px;
       margin-bottom: 20px;
       box-shadow: 0 6px 16px rgba(0,0,0,.05);
-    }
-
-    .post h3 {
-      margin: 0 0 8px;
     }
 
     .likes {
@@ -114,74 +119,118 @@
       color: var(--text);
     }
 
-    input::placeholder {
-      color: var(--muted);
+    .leaderboard h3 {
+      margin-top: 0;
+    }
+
+    .leaderboard li {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-weight: 600;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>🌍 Playto Community</h1>
-    <button onclick="toggleDark()">🌙 Dark</button>
-  </header>
+<header>
+  <h1>🌍 Playto Community</h1>
+  <button onclick="toggleDark()">🌙 Dark</button>
+</header>
 
+<div class="layout">
+
+  <!-- POSTS -->
   <div class="container">
 
-    <!-- POST -->
     <div class="post">
       <h3>Posted by <strong>hari</strong></h3>
-      <p>Life is short so stop worrying and start living 😊❤️</p>
-
-      <div class="likes">❤️ Liked by: Virat_Kohli, Gammana, Indhu</div>
-
-      <div class="comments" id="comments1">
+      <p>Life is short so Stop worrying and start living 😊❤️</p>
+      <div class="likes">❤️ Liked by: Virat_Kohli, Gammana, hari, Indhu</div>
+      <div class="comments">
         <div class="comment"><strong>gokul:</strong> True 👍</div>
         <div class="comment"><strong>Gammana:</strong> yeah I agree with you Hari</div>
-      </div>
-
-      <div class="add-comment">
-        <input placeholder="Write a comment..." />
-        <button onclick="addComment(this, 'comments1')">Post</button>
+        <div class="comment"><strong>hari:</strong> Me too !!</div>
       </div>
     </div>
 
-    <!-- POST -->
+    <div class="post">
+      <h3>Posted by <strong>Gammana</strong></h3>
+      <p>Hi everyone If you are a BE CSE Graduate with above 8 CGPA. Kindly drop a comment "Yes" for Job related queries.</p>
+      <div class="likes">❤️ Liked by: Indhu, Shakespeare, Virat_Kohli, gokul, hari</div>
+      <div class="comments">
+        <div class="comment"><strong>Indhu:</strong> Yes</div>
+        <div class="comment"><strong>Gammana:</strong> Thanks for replying !!! Check your Inbox !!!</div>
+        <div class="comment"><strong>hari:</strong> Yes</div>
+        <div class="comment"><strong>Gammana:</strong> Thanks for replying !!! Check your Inbox !!!</div>
+      </div>
+    </div>
+
     <div class="post">
       <h3>Posted by <strong>Indhu</strong></h3>
       <p>I got placed in Google with 80 LPA package 😊❤️</p>
-
       <div class="likes">❤️ Liked by: gokul</div>
-
-      <div class="comments" id="comments2">
+      <div class="comments">
         <div class="comment"><strong>gokul:</strong> Congrats 🎉❤️</div>
+        <div class="comment"><strong>Indhu:</strong> Thanks ❤️❤️</div>
       </div>
+    </div>
 
-      <div class="add-comment">
-        <input placeholder="Write a comment..." />
-        <button onclick="addComment(this, 'comments2')">Post</button>
+    <div class="post">
+      <h3>Posted by <strong>Virat_Kohli</strong></h3>
+      <p>Today I scored Century again Pakistan 🇮🇳❤️</p>
+      <div class="likes">❤️ Liked by: gokul, Indhu</div>
+      <div class="comments">
+        <div class="comment"><strong>Shakespeare:</strong> Good Knock it was !!!!</div>
+        <div class="comment"><strong>gokul:</strong> G.O.A.T 🇮🇳❤️</div>
+        <div class="comment"><strong>Virat_Kohli:</strong> Thanks Gokul 😊❤️</div>
+      </div>
+    </div>
+
+    <div class="post">
+      <h3>Posted by <strong>Shakespeare</strong></h3>
+      <p>WHAT GOES UP MUST COME DOWN !!!</p>
+      <div class="likes">❤️ Liked by: Shakespeare, Indhu</div>
+      <div class="comments">
+        <div class="comment"><strong>Indhu:</strong> Motivational ❤️</div>
+        <div class="comment"><strong>gokul:</strong> Yeah I agree !!!</div>
+      </div>
+    </div>
+
+    <div class="post">
+      <h3>Posted by <strong>gokul</strong></h3>
+      <p>Hard Times Create Strong MEN 💪❤️</p>
+      <div class="likes">❤️ Liked by: hari, gokul, Indhu</div>
+      <div class="comments">
+        <div class="comment"><strong>hari:</strong> Great Content !!!</div>
+        <div class="comment"><strong>gokul:</strong> I know 😌😂</div>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function toggleDark() {
-      document.body.classList.toggle("dark");
-    }
+  <!-- LEADERBOARD -->
+  <div class="sidebar">
+    <div class="leaderboard">
+      <h3>🔥 Daily Karma</h3>
+      <p><strong>🏆 Leaderboard (24h)</strong></p>
+      <ul>
+        <li><span>1. gokul</span><span>100</span></li>
+        <li><span>2. Indhu</span><span>95</span></li>
+        <li><span>3. Gammana</span><span>90</span></li>
+        <li><span>4. Virat_Kohli</span><span>80</span></li>
+        <li><span>5. Shakespeare</span><span>70</span></li>
+      </ul>
+    </div>
+  </div>
 
-    function addComment(btn, id) {
-      const input = btn.previousElementSibling;
-      const text = input.value.trim();
-      if (!text) return;
+</div>
 
-      const div = document.createElement("div");
-      div.className = "comment";
-      div.innerHTML = "<strong>You:</strong> " + text;
+<script>
+  function toggleDark() {
+    document.body.classList.toggle("dark");
+  }
+</script>
 
-      document.getElementById(id).appendChild(div);
-      input.value = "";
-    }
-  </script>
 </body>
 </html>
